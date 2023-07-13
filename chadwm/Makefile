@@ -26,7 +26,7 @@ chadwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
 
 clean:
-	rm -f chadwm ${OBJ} chadwm-${VERSION}.tar.gz config.h
+	rm -f chadwm ${OBJ} chadwm-${VERSION}.tar.gz config.h *.orig *rej
 
 dist: clean
 	mkdir -p chadwm-${VERSION}
