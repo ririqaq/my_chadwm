@@ -37,8 +37,8 @@ static const char *light_down[] = {"/usr/bin/light", "-U", "5", NULL};
 #define ICONSIZE 19   /* icon size */
 #define ICONSPACING 8 /* space between icon and title */
 
-static const char *fonts[]          = {"Iosevka:style:medium:size=14" ,"JetBrainsMono Nerd Font:style:medium:size=14",
-                                        "Material Design Icons Desktop:size=14" };
+static const char *fonts[]          = {"Iosevka:style:medium:size=12" ,"JetBrainsMono Nerd Font:style:medium:size=12",
+                                        "Material Design Icons Desktop:size=12" };
 
 // theme
 #include "themes/onedark.h"
@@ -74,9 +74,10 @@ static const char *colors[][3]      = {
 //static char *tags[] = {"", "", "", "", "", "", "", "", ""};
 //static char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 //static char *tags[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+static char *tags[] = { "I", "II", "III", "IV","","","","",""};
 //static char *tags[] = { "", "", "", "", "", "", "", "", "" };
 //static char *tags[] = { "Web", "Chat", "Edit", "Meld", "Vb", "Mail", "Video", "Image", "Files" };
-static char *tags[] = {"一", "二", "三", "四", "五", "六", "七", "八", "九"};
+//static char *tags[] = {"一", "二", "三", "四", "五", "六", "七", "八", "九"};
 
 static const char* eww[] = { "eww", "open" , "eww", NULL };
 static const char* discord[] = { "discord", "open" , "discord", NULL };
@@ -86,11 +87,9 @@ static const char* pavucontrol[] = { "pavucontrol", NULL };
 
 static const Launcher launchers[] = {
     /* command     name to display */
-    { eww,           "數" },
-    { discord,       "ﱲ" },
+    { eww,           "EWW" },
+    { discord,       "QQ" },
     { telegram,      "" },
-    { mintstick,     "虜" },
-    { pavucontrol,   "墳" },
 };
 
 static const int tagschemes[] = {
@@ -112,6 +111,8 @@ static const Rule rules[] = {
     { "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
     { "eww",      NULL,       NULL,       0,            0,           1,           -1 },
     { "mintstick", NULL,      NULL,       0,            0,           0,           -1 },
+    { "qq",       NULL,       "图片查看器", 0,          0,           0,           -1 },
+    { "qq",       NULL,       "broken", 0,              1,           1,           -1 },
 };
 
 /* layout(s) */
