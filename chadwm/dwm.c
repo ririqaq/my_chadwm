@@ -1489,20 +1489,22 @@ void drawbar(Monitor *m) {
   }
   x = borderpx;
   for (i = 0; i < LENGTH(tags); i++) {
-    w = TEXTW(tags[i]);
-    drw_setscheme(drw, scheme[occ & 1 << i ? (m->colorfultag ? tagschemes[i] : SchemeSel) : SchemeTag]);
-    drw_text(drw, x, y, w, bh_n, lrpad / 2, tags[i], urg & 1 << i);
-    if (ulineall ||
-        m->tagset[m->seltags] &
-            1 << i) /* if there are conflicts, just move these lines directly
-                       underneath both 'drw_setscheme' and 'drw_text' :) */
-        drw_rect(drw, x + ulinepad, bh_n - ulinestroke - ulinevoffset,
-               w - (ulinepad * 2), ulinestroke, 1, 0);
-    /*if (occ & 1 << i)
-      drw_rect(drw, x + boxs, y + boxs, boxw, boxw,
-               m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
-               urg & 1 << i); */
-    x += w;
+    if(tags[i]!=""){
+      w = TEXTW(tags[i]);
+      drw_setscheme(drw, scheme[occ & 1 << i ? (m->colorfultag ? tagschemes[i] : SchemeSel) : SchemeTag]);
+        drw_text(drw, x, y, w, bh_n, lrpad / 2, tags[i], urg & 1 << i);
+      if (ulineall ||
+          m->tagset[m->seltags] &
+              1 << i) /* if there are conflicts, just move these lines directly
+                         underneath both 'drw_setscheme' and 'drw_text' :) */
+          drw_rect(drw, x + ulinepad, bh_n - ulinestroke - ulinevoffset,
+                 w - (ulinepad * 2), ulinestroke, 1, 0);
+      /*if (occ & 1 << i)
+        drw_rect(drw, x + boxs, y + boxs, boxw, boxw,
+                 m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
+                 urg & 1 << i); */
+      x += w;
+    }
   }
   w = blw = TEXTW(m->ltsymbol);
   drw_setscheme(drw, scheme[SchemeLayout]);
