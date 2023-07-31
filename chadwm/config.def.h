@@ -33,6 +33,8 @@ static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%"
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 static const char *light_up[] = {"/usr/bin/light", "-A", "5", NULL};
 static const char *light_down[] = {"/usr/bin/light", "-U", "5", NULL};
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x24", NULL };
 
 #define ICONSIZE 19   /* icon size */
 #define ICONSPACING 8 /* space between icon and title */
@@ -175,7 +177,7 @@ static Key keys[] = {
 
     //{ MODKEY,                           XK_c,       spawn,          SHCMD("rofi -show drun") },
     //{ MODKEY,                           XK_Return,  spawn,            SHCMD("st")},
-
+    {MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
     // toggle stuff
     { MODKEY,                           XK_b,       togglebar,      {0} },
     { MODKEY|ControlMask,               XK_t,       togglegaps,     {0} },
